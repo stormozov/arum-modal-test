@@ -1,0 +1,124 @@
+.modal-open {
+  overflow-y: hidden;
+  position: relative;
+}
+
+/* Modal: start */
+.modal-overlay {
+  display: none;
+  width: 100%;
+  height: 100%;        
+  background: rgba(24, 21, 21, 0.85);
+  opacity: 0;
+  transition: 0.5s;
+  animation: show 1s 1; /* Указываем название анимации, её время и количество повторов*/
+  animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+  animation-delay: 0; /* Задержка перед началом */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.modal-overlay.open {
+  display: block;
+}
+.modal-intro-video {
+  display: table;    
+  width: 100%;
+  height: 100%;
+}
+.modal-intro-video__video {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.modal-intro-video-wrapp {
+  width: max-content;
+  margin: 0 auto;
+  position: relative;
+}
+.modal-intro-video-wrapp iframe {
+  width: 1000px;
+  height: 562px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  padding: 5px;
+}
+/* Modal: end */
+/* Close btn: start */
+.modal-intro-video__close {
+  display: block;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+}
+.modal-intro-video__close::before,
+.modal-intro-video__close::after
+{
+  content: '';
+  border: 2px solid #FFFFFF;
+  display: block;
+  width: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.modal-intro-video__close::before {
+  transform: translate(-50%) rotate(-45deg);
+}
+.modal-intro-video__close::after {
+  transform: translate(-50%) rotate(45deg);
+}
+/* Close btn: end */
+/* Animation: start */
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+/* Animation: end */
+/* Adaptation: start */
+@media screen and (max-width: 1150px) {
+  .modal-intro-video__video iframe {
+    width: 785px;
+    height: 470px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .modal-intro-video__video iframe {
+    width: 540px;
+    height: 323px;
+    border-radius: 5px;
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 630px) {
+  .modal-intro-video__close {
+    margin: 0 auto 40px;
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+}
+@media screen and (max-width: 576px) {
+  .modal-intro-video__video iframe {
+    width: 480px;
+    height: 290px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .modal-intro-video__video iframe {
+    width: 276px;
+    height: 252px;
+    padding: 5px;
+  }
+}
+/* Adaptation: end */
